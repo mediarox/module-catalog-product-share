@@ -12,20 +12,8 @@
     <body>
         <referenceContainer name="content">
             <referenceBlock name="product.info.addto">
-                <block class="Magento\Wishlist\Block\Catalog\Product\View\AddTo\Wishlist" name="view.addto.wishlist"
-                       template="Magento_Wishlist::catalog/product/view/share.phtml" />
-            </referenceBlock>
-        </referenceContainer>
-        <referenceContainer name="content.aside">
-            <referenceBlock name="related.product.addto">
-                <block class="Magento\Wishlist\Block\Catalog\Product\ProductList\Item\AddTo\Wishlist"
-                       name="related.product.addto.wishlist" as="wishlist" before="compare"
-                       template="Magento_Wishlist::catalog/product/list/share.phtml"/>
-            </referenceBlock>
-            <referenceBlock name="upsell.product.addto">
-                <block class="Magento\Wishlist\Block\Catalog\Product\ProductList\Item\AddTo\Wishlist"
-                       name="upsell.product.addto.wishlist" as="wishlist" before="compare"
-                       template="Magento_Wishlist::catalog/product/list/share.phtml"/>
+                <block class="Catalog\ProductShare\Block\Catalog\Product\View\Share" name="view.share"
+                       template="Catalog_ProductShare::catalog/product/view/share.phtml" />
             </referenceBlock>
         </referenceContainer>
     </body>
