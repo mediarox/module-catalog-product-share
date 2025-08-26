@@ -2,6 +2,9 @@
 @share__modal__centering: true;
 @share__modal__round-corners: true;
 @share__modal__border-radius: 12px;
+@share__modal__border-color: rgb(228, 228, 231);
+@share__modal__box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px;
+
 
 //
 //  Common
@@ -26,7 +29,9 @@
         
         // round corners
         & when (@share__modal__round-corners = true) {
-            border-radius: @share__modal__border-radius;
+            .lib-css(border-radius, @share__modal__border-radius);
+            .lib-css(border, 1px solid @share__modal__border-color);
+            .lib-css(box-shadow, @share__modal__box-shadow);
         }
         
     }
