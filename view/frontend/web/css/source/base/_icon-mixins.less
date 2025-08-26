@@ -1,0 +1,23 @@
+.share__main-icon(
+    @icon__font: @share__icon__font-name;
+    @icon__font-size: 16px;
+    @icon__line-height: 16px;
+    @icon__position: before;
+    @icon__color: black;
+    @icon__margin: '';
+) {
+    .lib-icon-font(
+        @_icon-font-content: @icon-share,
+        @_icon-font: @icon__font,
+        @_icon-font-size: @icon__font-size,
+        @_icon-font-margin: @icon__margin,
+        @_icon-font-line-height: @icon__line-height,
+        @_icon-font-color: @icon__color,
+        @_icon-font-position: @icon__position
+    );
+    &::after {
+        margin-left: 10px;
+        .lib-css(display, flex);
+        .lib-vendor-box-align(center);
+    }
+}
