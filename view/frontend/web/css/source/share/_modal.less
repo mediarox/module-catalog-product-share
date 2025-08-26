@@ -1,5 +1,7 @@
 @share__modal__max-width: 384px;
 @share__modal__centering: true;
+@share__modal__round-corners: true;
+@share__modal__border-radius: 12px;
 
 //
 //  Common
@@ -21,6 +23,12 @@
             transform: translateY(-50%) !important; // 3 overrides :)
             margin: auto auto;
         }
+        
+        // round corners
+        & when (@share__modal__round-corners = true) {
+            border-radius: @share__modal__border-radius;
+        }
+        
     }
     
     // main modal - layout
