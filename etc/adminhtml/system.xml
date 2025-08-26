@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright 2025 (c) mediarox UG (haftungsbeschraenkt) (http://www.mediarox.de)
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="frontend" translate="label" class="frontend-settings" sortOrder="10">
+            <label>Frontend</label>
+        </tab>
+        <section id="products" translate="label" showInDefault="1" showInWebsite="1" showInStore="1">
+            <tab>frontend</tab>
+            <label>Products</label>
+            <resource>Catalog_ProductShare::products</resource>
+            <group id="share" translate="label" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Share</label>
+                <field id="enabled" translate="label" type="select" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1" sortOrder="10">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

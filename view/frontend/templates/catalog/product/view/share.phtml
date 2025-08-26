@@ -1,0 +1,48 @@
+<?php
+/**
+ * Copyright 2025 (c) mediarox UG (haftungsbeschraenkt) (http://www.mediarox.de)
+ * See LICENSE for license details.
+ */
+
+declare(strict_types=1);
+
+use Catalog\ProductShare\Block\Catalog\Product\View\Share as Block;
+use Magento\Framework\Escaper;
+use Catalog\ProductShare\Helper\Share as Helper;
+
+/**
+ * @var Block $block
+ * @var Escaper $escaper
+ * @var Helper $helper
+ */
+$helper = $this->helper(Helper::class);
+$productUrl = $block->getProduct()->getProductUrl();
+$productUrlEncoded = $block->getProductUrlEncoded();
+?>
+<?php if ($helper->isEnabled()) : ?>
+    <a href="#"
+       class="action share"
+       data-url='<?= $block->getProduct()->getProductUrl() ?>'
+       data-trigger="share-product"><span><?= $block->escapeHtml(__('Share')) ?></span></a>
+    <button type="button" class="action" data-trigger="trigger">
+        <span data-bind="i18n: 'Click Here'"></span>
+    </button>
+    <div data-bind="mageInit: {
+        'Magento_Ui/js/modal/modal':{
+            'type': 'popup',
+            'title': 'Share product',
+            'trigger': '[data-trigger=share-product]',
+            'responsive': true,
+            'buttons': []
+        }}">
+        <div class="content">
+            <ul>
+                <li><a href="javascript:navigator.clipboard.writeText('<?= $productUrl ?>')"><?= __('Copy link') ?></a></li>
+                <li><a href="https://api.whatsapp.com/send/?text=<?= $block->getProductNameForWhatsApp() ?>+-+<?= $productUrlEncoded ?>&type=custom_url&app_absent=0"><?= __('WhatsApp') ?></a></li>
+                <li><a href="mailto:?body=<?= $block->getProductNameForEmail() ?>%20-%20<?= $productUrl ?>?subject=<?= $block->getEmailSubject() ?>"><?= __('Email') ?></a></li>
+            </ul>
+            
+        </div>
+    </div>
+    
+<?php endif; ?>
