@@ -10,6 +10,28 @@
 @share__modal__title__font-family: ui-sans-serif, system-ui, sans-serif;
 @share__modal__title__font-weight: 600;
 @share__modal__title__font-size: 18px;
+@share__modal__title__border-bottom: none;
+
+@share__modal__reset-spacing: true;
+@share__modal__header__padding: 3rem 2rem 0.5rem 2rem;
+@share__modal__header__close__margin-right: 2.5rem;
+@share__modal__header__close__margin-top: 3rem;
+@share__modal__content__padding: 0 2rem 2rem 2rem;
+
+@share__modal__link-list-styling: true;
+@share__modal__link-list__style-type: none;
+@share__modal__link-list__padding: 0;
+@share__modal__link-list__margin-bottom: 0;
+@share__modal__link-list__item__border-color: @share__modal__border-color;
+@share__modal__link-list__item__box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;
+@share__modal__link-list__item__border-radius: 6px;
+@share__modal__link-list__item__link__padding: 6px 16px;
+@share__modal__link-list__item__link__font-size: 14px;
+@share__modal__link-list__item__link__font-weight: 500;
+@share__modal__link-list__item__link__color: rgb(24, 24, 27);
+
+@share__modal__link-list__item__link__margin-right: 12px;
+@share__modal__link-list__item__link__hover__background-color: rgb(244, 244, 245);
 
 //
 //  Common
@@ -45,7 +67,72 @@
                 .lib-css(font-family, @share__modal__title__font-family);
                 .lib-css(font-weight, @share__modal__title__font-weight);
                 .lib-css(font-size, @share__modal__title__font-size);
+                .lib-css(border-bottom, @share__modal__title__border-bottom);
             }
+        }
+        
+        // reset paddings
+        & when (@share__modal__reset-spacing = true) {
+            .modal-header {
+                .lib-css(padding, @share__modal__header__padding);
+                
+                .action-close {
+                    .share__icon-close();
+                    .lib-css(margin-top, @share__modal__header__close__margin-top);
+                    .lib-css(margin-right, @share__modal__header__close__margin-right);
+                }
+            }
+            .modal-content {
+                .lib-css(padding, @share__modal__content__padding);
+            }
+        }
+
+        // styling link list
+        & when (@share__modal__link-list-styling = true) {
+            ul {
+                .lib-css(list-style-type, @share__modal__link-list__style-type);
+                .lib-css(padding, @share__modal__link-list__padding);
+                .lib-css(margin-bottom, @share__modal__link-list__margin-bottom);
+                
+                li {
+                    .lib-css(border, 1px solid @share__modal__link-list__item__border-color);
+                    .lib-css(box-shadow, @share__modal__link-list__item__box-shadow);
+                    
+                    & when (@share__modal__round-corners = true) {
+                        .lib-css(border-radius, @share__modal__link-list__item__border-radius);
+                    }
+                    
+                    a {
+                        display: flex;
+                        align-items: center;
+                        .lib-css(padding, @share__modal__link-list__item__link__padding);
+                        .lib-css(font-weight, @share__modal__link-list__item__link__font-weight);
+                        .lib-css(font-size, @share__modal__link-list__item__link__font-size);
+                        .lib-css(color, @share__modal__link-list__item__link__color);
+                        &::before {
+                            .lib-css(margin-right, @share__modal__link-list__item__link__margin-right);
+                        }
+                        &:hover {
+                            .lib-css(background-color, @share__modal__link-list__item__link__hover__background-color);
+                        }
+                    }
+                    
+                    a.copy {
+                        .share__icon-copy();
+                    }
+                    a.whatsapp {
+                        .share__icon-whatsapp();
+                    }
+                    a.email {
+                        .share__icon-email();
+                    }
+                }
+            }
+
+            ul li {
+                .lib-css(border-radius, @share__modal__link-list__item__border-radius);
+            }
+            
         }
     }
     
