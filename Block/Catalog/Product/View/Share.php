@@ -22,7 +22,7 @@ class Share extends \Magento\Catalog\Block\Product\View
 
     public function getProductUrlEncoded()
     {
-        $url = $this->getProduct()->getUrl();
+        $url = $this->getProduct()->getProductUrl();
         return urlencode($url);
     }
 
