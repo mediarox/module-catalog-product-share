@@ -29,6 +29,6 @@ class Share extends \Magento\Catalog\Block\Product\View
     public function getEmailSubject()
     {
         $subject = __('Product recommendation');
-        return reg_replace('/\s+/', '%20', $subject);
+        return preg_replace('/\s+/', '%20', $subject);
     }
 }
