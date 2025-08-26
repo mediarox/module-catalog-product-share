@@ -39,7 +39,7 @@ $productNameWhatsApp = $block->getProductNameForWhatsApp();
             <ul>
                 <li><a href="javascript:navigator.clipboard.writeText('<?= $productUrl ?>')"><?= __('Copy link') ?></a></li>
                 <li><a href="https://api.whatsapp.com/send/?text=<?= $productNameWhatsApp ?>+-+<?= $productUrlEncoded ?>&type=custom_url&app_absent=0"><?= __('WhatsApp') ?></a></li>
-                <li><a href="mailto:subject=<?= $emailSubject ?>?body=<?= $productNameEmail ?>%20-%20<?= $productUrl ?>"><?= __('E-Mail') ?></a></li>
+                <li><a href="mailto:?subject=<?= $emailSubject ?>&body=<?= $productNameEmail ?>%20-%20<?= $productUrl ?>"><?= __('E-Mail') ?></a></li>
             </ul>
             
         </div>
