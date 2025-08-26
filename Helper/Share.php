@@ -16,10 +16,7 @@ class Share extends AbstractHelper
     protected string $enabled;
     public function __construct(
         Context $context,
-        $enabled,
-        $urlPath,
-        $groupName,
-        $defaultShelfBays
+        $enabled
     ) {
         parent::__construct($context);
         $this->enabled = $enabled;
