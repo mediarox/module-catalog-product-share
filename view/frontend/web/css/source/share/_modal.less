@@ -1,10 +1,15 @@
 @share__modal__max-width: 384px;
 @share__modal__centering: true;
+
 @share__modal__round-corners: true;
 @share__modal__border-radius: 12px;
 @share__modal__border-color: rgb(228, 228, 231);
 @share__modal__box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.1) 0px 1px 2px -1px;
 
+@share__modal__title-styling: true;
+@share__modal__title__font-family: ui-sans-serif, system-ui, sans-serif;
+@share__modal__title__font-weight: 600;
+@share__modal__title__font-size: 18px;
 
 //
 //  Common
@@ -34,6 +39,14 @@
             .lib-css(box-shadow, @share__modal__box-shadow);
         }
         
+        // styling title
+        & when (@share__modal__title-styling = true) {
+            .modal-title {
+                .lib-css(font-family, @share__modal__title__font-family);
+                .lib-css(font-weight, @share__modal__title__font-weight);
+                .lib-css(font-size, @share__modal__title__font-size);
+            }
+        }
     }
     
     // main modal - layout
