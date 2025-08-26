@@ -1,18 +1,28 @@
 @share__modal__max-width: 384px;
+@share__modal__centering: true;
 
-//##########################################
-// main modal - layout
+//
+//  Common
+//  _____________________________________________
 
-.share-modal .modal-inner-wrap {
+& when (@media-common = true) {
+
+    //##########################################
+    // main modal - layout
     
-    // max width
-    .lib-css(max-width, @share__modal__max-width);
+    .share-modal .modal-inner-wrap {
+        
+        // max width
+        .lib-css(max-width, @share__modal__max-width);
+
+        // real centering
+        & when (@share__modal__centering = true) {
+            top: 50%;
+            transform: translateY(-50%) !important; // 3 overrides :)
+            margin: auto auto;
+        }
+    }
     
-    // real centering
-    top: 50%;
-    transform: translateY(-50%) !important; // 3 overrides :)
-    margin: auto auto;
+    // main modal - layout
+    //##########################################
 }
-
-// main modal - layout
-//##########################################
