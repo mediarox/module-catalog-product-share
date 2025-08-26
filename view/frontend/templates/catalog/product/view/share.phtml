@@ -30,7 +30,7 @@ $productNameWhatsApp = $block->getProductNameForWhatsApp();
     <div data-bind="mageInit: {
         'Magento_Ui/js/modal/modal':{
             'type': 'popup',
-            'title': 'Share product',
+            'title': '<?= $block->escapeHtml(__('Share product')) ?>',
             'trigger': '[data-trigger=share-product]',
             'responsive': true,
             'buttons': []
