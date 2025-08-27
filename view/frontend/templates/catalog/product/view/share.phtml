@@ -24,10 +24,10 @@ $productNameWhatsApp = $block->getProductNameForWhatsApp();
 
 ?>
 <?php if ($helper->isEnabled()) : ?>
-    <a href="#"
+    <a href="#" title="<?= $block->escapeHtml(__('Share product')) ?>"
        class="action share"
        data-trigger="share-product"><span><?= $block->escapeHtml(__('Share')) ?></span></a>
-    <div data-bind="mageInit: {
+    <div class="origin-share-modal" data-bind="mageInit: {
         'Magento_Ui/js/modal/modal':{
             'type': 'popup',
             'title': '<?= $block->escapeHtml(__('Share product')) ?>',
@@ -38,11 +38,18 @@ $productNameWhatsApp = $block->getProductNameForWhatsApp();
         }}">
         <div class="content">
             <ul>
-                <li><a class="copy" href="javascript:navigator.clipboard.writeText('<?= $productUrl ?>')"><?= __('Copy link') ?></a></li>
-                <li><a class="whatsapp" href="https://api.whatsapp.com/send/?text=<?= $productNameWhatsApp ?>+-+<?= $productUrlEncoded ?>&type=custom_url&app_absent=0"><?= __('WhatsApp') ?></a></li>
+                <li><a class="copy" href="javascript:navigator.clipboard.writeText('<?= $productUrl ?>')"><?= __('Copy link') ?><span style="display: none;" class="confirmation"><?= __('Copied') ?></span></a></li>
+                <li><a class="whatsapp" target="_blank" href="https://api.whatsapp.com/send/?text=<?= $productNameWhatsApp ?>+-+<?= $productUrlEncoded ?>&type=custom_url&app_absent=0"><?= __('WhatsApp') ?></a></li>
                 <li><a class="email" href="mailto:?subject=<?= $emailSubject ?>&body=<?= $productNameEmail ?>%20-%20<?= $productUrl ?>"><?= __('E-Mail') ?></a></li>
             </ul>
-            
         </div>
     </div>
+    <!-- confirmation that the link has been copied -->
+    <script>
+        require(['jquery'], function ($) {
+            $('a.copy').on('click', function () {
+                $(this).find('.confirmation').fadeIn('fast').delay(2000).fadeOut('fast');
+            });
+        });
+    </script>
 <?php endif; ?>

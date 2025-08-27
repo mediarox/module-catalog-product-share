@@ -32,6 +32,9 @@
 
 @share__modal__link-list__item__link__margin-right: 12px;
 @share__modal__link-list__item__link__hover__background-color: rgb(244, 244, 245);
+@share__modal__link-list__item__link__confirmation__color: darkgreen;
+@share__modal__link-list__item__link__confirmation__margin-left: auto;
+@share__modal__link-list__item__link__confirmation__font-size: 12px;
 
 //
 //  Common
@@ -39,6 +42,16 @@
 
 & when (@media-common = true) {
 
+    //##########################################
+    // content hidden before loading
+
+    .page-main .origin-share-modal .content {
+        display: none;
+    }
+
+    // content hidden before loading
+    //##########################################
+    
     //##########################################
     // main modal - layout
     
@@ -119,6 +132,11 @@
                     
                     a.copy {
                         .share__icon-copy();
+                        .confirmation {
+                            .lib-css(color, @share__modal__link-list__item__link__confirmation__color);
+                            .lib-css(margin-left, @share__modal__link-list__item__link__confirmation__margin-left);
+                            .lib-css(font-size, @share__modal__link-list__item__link__confirmation__font-size);
+                        }
                     }
                     a.whatsapp {
                         .share__icon-whatsapp();
