@@ -3,8 +3,11 @@
 //  * See COPYING.txt for license details.
 //  */
 
-@import 'base/_icon-font';
-@import 'base/_icon-mixins';
-@import 'base/_mixins';
-@import 'share/_link';
-@import 'share/_modal';
+@share__styles__enabled: true;
+& when (@share__styles__enabled = true) {
+    @import 'base/_icon-font';
+    @import 'base/_icon-mixins';
+    @import 'base/_mixins';
+    @import 'share/_link';
+    @import 'share/_modal';
+}
