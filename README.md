@@ -1,8 +1,8 @@
 # Share link for product detail page
 
-## Description
-### Short
-Adds the usual ![icon](https://github.com/user-attachments/assets/1e9d9d87-de60-4f69-bddb-d6379f79c096) link to the products.
+### Description
+#### Short
+Adds the usual ![icon](https://github.com/user-attachments/assets/1e9d9d87-de60-4f69-bddb-d6379f79c096) link to the ```product.info.addto``` layout section on product-view page.
 ### Modal
 ![modal](https://github.com/user-attachments/assets/10f9b22e-dfbb-4de9-87d4-04f9a5c19087)
 ### Languages
